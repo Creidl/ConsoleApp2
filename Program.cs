@@ -1,17 +1,14 @@
-﻿string name = "John";
-bool isWomen = false;
-int age = 29;
+﻿int number = 1266664442;
+string numericalSequence = number.ToString();
+int[] stats = new int[10];
+char[] numbers = {'0','1','2','3','4','5','6','7','8','9'};
+char[] sequence = numericalSequence.ToArray();
 
-if (isWomen)
-    if (age < 30)
-        Console.WriteLine("Kobieta poniżej 30 lat.");
-    else 
-        if (name == "Ewa" && age == 33)
-            Console.WriteLine("Ewa, lat 33.");
-        else
-            Console.WriteLine(name + " jest dojrzałą kobietą."); 
-else
-    if (age < 18)
-        Console.WriteLine("Niepełnoletni meżczyzna.");
-    else
-        Console.WriteLine(name + " jest pełnoletni.");
+foreach (var leter in sequence)
+    for (int i = 0; i < 10; i++)
+        if (numbers[i] == leter)
+            stats[i]++;
+
+Console.WriteLine("W liczbie: " + number + " znajduje się:");
+for (int i = 0; i < 10; i++)
+    Console.WriteLine(i + " => " + stats[i]);
