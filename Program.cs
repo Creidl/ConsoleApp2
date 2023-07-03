@@ -1,14 +1,25 @@
-﻿int number = 1266664442;
-string numericalSequence = number.ToString();
-int[] stats = new int[10];
-char[] numbers = {'0','1','2','3','4','5','6','7','8','9'};
-char[] sequence = numericalSequence.ToArray();
+﻿using ConsoleApp2;
 
-foreach (var leter in sequence)
-    for (int i = 0; i < 10; i++)
-        if (numbers[i] == leter)
-            stats[i]++;
+Employee user1 = new Employee("Sam","Serious",30);
+Employee user2 = new Employee("John");
+Employee user3 = new Employee();
+List<Employee> employees = new List<Employee>() { user1,user2,user3};
+var random = new Random();
 
-Console.WriteLine("W liczbie: " + number + " znajduje się:");
-for (int i = 0; i < 10; i++)
-    Console.WriteLine(i + " => " + stats[i]);
+foreach (Employee employee in employees)
+    for (int i = 0; i < 5; i++)
+        employee.AddScore(random.Next(1,11));
+
+int maxIndex = 0;
+
+for (int i = 1;i < 3; i++)
+    if (employees[maxIndex].Score < employees[i].Score)
+        maxIndex = i;
+
+if (maxIndex != 0)
+    Console.WriteLine("Are You serious?");
+Console.WriteLine("The best employee is:");
+Console.WriteLine("imię: " + employees[maxIndex].FirstName
+                  +" nazwisko: " + employees[maxIndex].LastName 
+                  +" wiek: " + employees[maxIndex].Age+" punkty: "
+                  + employees[maxIndex].Score);
